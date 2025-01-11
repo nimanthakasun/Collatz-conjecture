@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 if __name__ == "__main__":
     hist_array = np.array([1])
-    cc_upperbound = 200
+    cc_upperbound = 500
 
     for input_val in range(1,cc_upperbound):
         # input_val = 5528
@@ -16,23 +16,20 @@ if __name__ == "__main__":
                 input_val = 3 * input_val +1
 
             result_array = np.append(result_array,[input_val])
+
+        plt.figure("Answers movement")
+        plt.title("Answers movement")
+        plt.xlabel("X axis")
+        plt.ylabel("Y axis")
+        x = np.arange(0, result_array.size)
+        plt.plot(x, result_array, color="blue",linewidth=0.5)
         hist_array = np.append(hist_array,[result_array.size])
 
-    # print(result_array)
-    print(hist_array.size)
-
-    # Line graph
-    # plt.title("Iteration")
-    # plt.xlabel("X axis")
-    # plt.ylabel("Y axis")
-    # x = np.arange(0, result_array.size)
-    # plt.plot(x, result_array, color="red")
-
-    # Histogram
-    plt.title("Iteration Histogram")
+    # Frequncies chart
+    plt.figure("Number of Iterations")
+    plt.title("Number of Iterations")
     plt.xlabel("X axis")
     plt.ylabel("Y axis")
-    # x = np.arange(0, hist_array.size)
     plt.bar(range(0,hist_array.size), hist_array)
 
     plt.show()
